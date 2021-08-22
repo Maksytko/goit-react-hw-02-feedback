@@ -1,4 +1,6 @@
 import Notification from "../Notification/Notification";
+import propTypes from "prop-types";
+import style from "./Statistics.module.css";
 
 function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
@@ -6,7 +8,7 @@ function Statistics({ good, neutral, bad, total, positivePercentage }) {
       <p>Statistics</p>
       {total > 0 ? (
         <div>
-          <ul>
+          <ul className={style.list}>
             <li>Good: {good}</li>
             <li>Neutral: {neutral}</li>
             <li>Bad: {bad}</li>
@@ -20,5 +22,13 @@ function Statistics({ good, neutral, bad, total, positivePercentage }) {
     </div>
   );
 }
+
+Statistics.propTypes = {
+  good: propTypes.number,
+  neutral: propTypes.number,
+  bad: propTypes.number,
+  total: propTypes.number,
+  positivePercentage: propTypes.number,
+};
 
 export default Statistics;
